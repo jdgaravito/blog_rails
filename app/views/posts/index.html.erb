@@ -1,0 +1,22 @@
+<h1> Listado de Entradas </h1>
+<p> <%= link_to 'Crear nueva entrada', new_post_path%> </p>
+<table class="post_list">
+    <tr> 
+        <% if signed_in? %>
+        <th> Opciones</th>
+        <th> ID </th>
+        <%end%>
+        <th> Título de la Entrada </th>
+        <th> Descripción</th>
+    <tr>
+    <% @posts.each do |post|%>
+        <tr> 
+        <% if signed_in? %>
+        <td> <%= link_to 'Editar', edit_post_path(post) %> <%=link_to 'Eliminar', post, method: :delete, data: { confirm: '¿Estas seguro de eliminar esta entrada?' }  %></td>
+        <td><%= post.id %></td>
+        <%end%>
+        <td><%= post.title %></td>
+        <td><%= link_to "Ver más", post %></td>
+    </tr>
+    <% end%>
+</table>

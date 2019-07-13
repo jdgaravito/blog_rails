@@ -1,0 +1,7 @@
+Escribe tu comentario <br/>
+<%= form_for [@post, @comment] do |f| %>
+    
+    <%= f.text_area :comment_content, size: "60x5" %><br/>
+    <%= f.submit "Comentar" %>
+
+<% end %>

@@ -1,0 +1,14 @@
+<h1><%= @post.title %></h1>
+<p>"<%= @post.description %>"</p>
+
+<%= link_to "Inicio", root_path %>
+<% if signed_in? %>
+    <%= link_to "Editar", edit_post_path(@post) %>
+    <%= link_to "Eliminar", @post, method: :delete, data: { confirm: '¿Estas seguro de eliminar esta entrada?' } %>
+<%end%>
+<h4> Comentarios </h4>
+<% @comments.each do |comment|%>
+    <ul><li> <strong><%=comment.user.email if comment.user%></strong> - <%=comment.comment_content%></li></ul>
+<%end%>
+<h4> Escribir un comentario </h4>
+<%=render "comment_form"%>

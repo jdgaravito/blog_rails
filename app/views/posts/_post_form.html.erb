@@ -1,0 +1,6 @@
+<%= form_for @post do |f| %>
+  Titulo: <%= f.text_field :title %><br />
+  Descripción: <br>
+  <%= f.text_area :description, size: "60x12" %> <br />
+  <%= f.submit locals[:b_text] %>
+<% end %>
